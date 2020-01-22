@@ -35,7 +35,7 @@ spec:
     stage('Deploy') {
       steps {
         container('maven') {
-          sh 'mvn sonar:sonar'
+          sh 'mvn clean deploy'
         }
       }
     }
