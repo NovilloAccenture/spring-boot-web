@@ -32,13 +32,13 @@ spec:
         }
       }
     }
-    // stage('Deploy') {
-    //   steps {
-    //     container('maven') {
-    //       sh 'mvn clean deploy'
-    //     }
-    //   }
-    // }
+    stage('Deploy') {
+      steps {
+        container('maven') {
+          sh 'mvn clean deploy'
+        }
+      }
+    }
   }
 }
 

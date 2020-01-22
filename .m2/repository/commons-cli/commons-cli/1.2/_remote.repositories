@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Jan 22 10:33:34 CET 2020
+commons-cli-1.2.jar>central=
+commons-cli-1.2.pom>central=
+commons-cli-1.2.jar>spring-releases=

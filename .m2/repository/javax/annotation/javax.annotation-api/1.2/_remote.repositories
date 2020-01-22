@@ -1,0 +1,5 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Nov 19 12:59:18 CET 2019
+javax.annotation-api-1.2.jar>central=
+javax.annotation-api-1.2.pom>central=
+javax.annotation-api-1.2-sources.jar>central=

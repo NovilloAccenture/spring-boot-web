@@ -1,0 +1,4 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Tue Jan 21 10:26:27 CET 2020
+spring-amqp-1.6.1.RELEASE.jar>spring-releases=
+spring-amqp-1.6.1.RELEASE.pom>spring-releases=

@@ -1,0 +1,6 @@
+#NOTE: This is a Maven Resolver internal implementation file, its format can be changed without prior notice.
+#Wed Jan 22 10:39:14 CET 2020
+plexus-archiver-2.9.pom>spring-releases=
+plexus-archiver-2.9.jar>central=
+plexus-archiver-2.9.jar>spring-releases=
+plexus-archiver-2.9.pom>central=

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<metadata>
+  <groupId>org.springframework.samples</groupId>
+  <artifactId>spring-petclinic</artifactId>
+  <versioning>
+    <versions>
+      <version>2.2.0.BUILD-SNAPSHOT</version>
+    </versions>
+    <lastUpdated>20200121150207</lastUpdated>
+  </versioning>
+</metadata>
