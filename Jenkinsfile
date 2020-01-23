@@ -34,8 +34,8 @@ spec:
     }
     stage('Deploy') {
       steps {
-        containter('maven') {
-        sh 'mvn deploy'
+        container('maven') {
+          sh 'mvn deploy'
         }
       }
     }
