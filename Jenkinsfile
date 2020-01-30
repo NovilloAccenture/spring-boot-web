@@ -34,16 +34,13 @@ spec:
     }
     stage('Sonarqube') {
     steps {
-        container('SonarQubeScanner') {
-            withSonarQubeEnv('SonarQube') {
-                sh "/usr/local/sonar-scanner"
-            }
-            timeout(time: 10, unit: 'MINUTES') {
-                waitForQualityGate abortPipeline: true
-            }
+        container('mavenr') {
+          sh 'mvn sonar:sonar'
         }
+      }
     }
-}
   }
 }
-
+                
+        
+        
