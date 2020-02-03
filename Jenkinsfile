@@ -52,19 +52,8 @@ spec:
       }
     }
   }
-    stage('Create Docker Image') {
-      steps {
-        container('docker') {
-          script {
-          app = docker.build("novilloaccenture/imagenpipeline")
-          docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-            //app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
-          }
-        }
-      }
-    }
-  }
+
+
 
 
 }
