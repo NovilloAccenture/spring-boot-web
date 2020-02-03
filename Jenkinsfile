@@ -38,11 +38,20 @@ spec:
           script {
             withSonarQubeEnv(installationName: 'SonarqubeServer') { // You can override the credential to be used
               sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
+          }
+        }
       }
     }
   }
-}
-  }
+    stage('Deploy') {
+      steps {
+        container('maven') {
+          sh 'mvn clean deploy -Dmaven.test.skip=true'
+        }
+      }
+    }
+
+
 }
 }
                 
