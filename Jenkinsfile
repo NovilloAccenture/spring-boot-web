@@ -14,15 +14,6 @@ spec:
     command:
     - cat
     tty: true
-  - name: docker
-    image: docker:dind
-    volumeMounts:
-    - name: dockersock
-      mountPath: "/var/run/docker.sock"
-  volumes:
-  - name: dockersock
-    hostPath:
-      path: "/var/run/docker.sock"
 """
     }
   }
