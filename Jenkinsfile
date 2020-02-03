@@ -17,8 +17,6 @@ spec:
   - name: docker
     image: docker:stable-dind
     command:
-    - cat
-    tty: true
     volumeMounts:
       - name: dockersock
       mountPath: "/var/run/docker.sock"
