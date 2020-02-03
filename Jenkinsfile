@@ -14,6 +14,15 @@ spec:
     command:
     - cat
     tty: true
+  - name: docker
+    image: docker:dind
+    volumeMounts:
+    - name: dockersock
+      mountPath: "/var/run/docker.sock"
+  volumes:
+  - name: dockersock
+    hostPath:
+      path: /var/run/docker.sock" 
 """
     }
   }
@@ -43,13 +52,17 @@ spec:
       }
     }
   }
-    stage('Deploy') {
+    stage('Create Docker Image') {
       steps {
-        container('maven') {
-          sh 'mvn clean deploy -Dmaven.test.skip=true'
+        container('docker') {
+          app = docker.build("novilloaccenture/imagenpipeline")
+          docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+            //app.push("${env.BUILD_NUMBER}")
+            app.push("latest")
         }
       }
     }
+  }
 
 
 }
