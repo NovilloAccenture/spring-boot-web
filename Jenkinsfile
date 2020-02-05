@@ -15,7 +15,7 @@ spec:
     - cat
     tty: true
   - name: docker
-  image: docker:stable-dind
+  image: docker:19-dind
   command:
   - cat
   tty: true          
