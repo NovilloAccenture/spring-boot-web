@@ -15,20 +15,26 @@ spec:
     - cat
     tty: true
   - name: docker
-  image: docker:19.03.5-dind
-  command:
-  - cat
-  tty: true          
-  volumeMounts:
-  - name: dockersock
-    mountPath: "/var/run/docker.sock"
+    image: docker:stable-dind
+    command:
+    - cat
+    tty: true
+    volumeMounts:
+    - name: dockersock
+      mountPath: "/var/run/docker.sock"
+  - name: helm
+    image: alpine/helm:3.0.0
+    command:
+    - cat
+    tty: true
   volumes:
   - name: dockersock
-    hostPath:
-      path: /var/run/docker.sock
-"""
-    }
-  }
+    hostPath: 
+      path: "/var/run/docker.sock"
+  """
+          }
+        }
+
   stages {
     stage('Build') {
       steps {
