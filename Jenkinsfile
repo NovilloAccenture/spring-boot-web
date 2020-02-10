@@ -43,24 +43,24 @@ spec:
         }
       }
     }
-    stage('Test') {
-      steps {
-        container('maven') {
-          sh 'mvn test'
-        }
-      }
-    }
-    stage('Sonarqube') {
-    steps {
-        container('maven') {
-          script {
-            withSonarQubeEnv(installationName: 'SonarqubeServer') { // You can override the credential to be used
-              sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
-          }
-        }
-      }
-    }
-  }
+    // stage('Test') {
+    //   steps {
+    //     container('maven') {
+    //       sh 'mvn test'
+    //     }
+    //   }
+    // }
+  //   stage('Sonarqube') {
+  //   steps {
+  //       container('maven') {
+  //         script {
+  //           withSonarQubeEnv(installationName: 'SonarqubeServer') { // You can override the credential to be used
+  //             sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
   stage('Create Docker Image') {
       steps {
         container('docker') {
@@ -80,7 +80,7 @@ spec:
         sh '''
         helm init
         helm ls
-        helm install mychart /.deploy
+        helm install mychart .deploy
 
 
         '''
