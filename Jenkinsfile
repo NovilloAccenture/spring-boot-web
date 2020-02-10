@@ -81,8 +81,6 @@ spec:
         helm init
         helm ls
         helm upgrade -i mychartjenkins .deploy
-
-
         '''
      }
     }
