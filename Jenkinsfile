@@ -50,41 +50,48 @@ spec:
         }
       }
     }
-    stage('Sonarqube') {
-    steps {
-        container('maven') {
-          script {
-            withSonarQubeEnv(installationName: 'SonarqubeServer') { // You can override the credential to be used
-              sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
-          }
-        }
-      }
-    }
-  }
-  stage('Create Docker Image') {
+    stage('Deploy') {
       steps {
-        container('docker') {
-          script {
-          app = docker.build("novilloaccenture/imagenpipeline")
-          docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
-            app.push("${env.BUILD_NUMBER}")
-            app.push("latest")
-          }
+        container('maven') {
+          sh 'mvn clean deploy'
         }
       }
     }
-  }
-  stage('Deploying to Kubernetes') {
-    steps { 
-      container ('helm') {
-        sh '''
-        helm init
-        helm ls
-        helm upgrade -i mychartjenkins .deploy
-        '''
-     }
-    }
-  }
+  //   stage('Sonarqube') {
+  //   steps {
+  //       container('maven') {
+  //         script {
+  //           withSonarQubeEnv(installationName: 'SonarqubeServer') { // You can override the credential to be used
+  //             sh 'mvn org.sonarsource.scanner.maven:sonar-maven-plugin:3.6.0.1398:sonar'
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+  // stage('Create Docker Image') {
+  //     steps {
+  //       container('docker') {
+  //         script {
+  //         app = docker.build("novilloaccenture/imagenpipeline")
+  //         docker.withRegistry('https://registry.hub.docker.com', 'docker-hub-credentials') {
+  //           app.push("${env.BUILD_NUMBER}")
+  //           app.push("latest")
+  //         }
+  //       }
+  //     }
+  //   }
+  // }
+  // stage('Deploying to Kubernetes') {
+  //   steps { 
+  //     container ('helm') {
+  //       sh '''
+  //       helm init
+  //       helm ls
+  //       helm upgrade -i mychartjenkins .deploy
+  //       '''
+  //    }
+  //   }
+  // }
 
 
 
