@@ -74,13 +74,13 @@ spec:
       }
     }
   }
-  stage('Deploy to Kubernetes') {
+  stage('Deploying to Kubernetes') {
     steps { 
       container ('helm') {
         sh '''
         helm init
         helm ls
-        helm install mychart .
+        helm install mychart /.deploy
 
 
         '''
