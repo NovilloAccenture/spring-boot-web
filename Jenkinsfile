@@ -79,7 +79,7 @@ spec:
       container ('helm') {
         sh '''
         helm init
-        cd /deploy
+        helm ls
         helm install mychart .
 
 
