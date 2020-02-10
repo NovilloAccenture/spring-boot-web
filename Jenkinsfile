@@ -80,7 +80,7 @@ spec:
         sh '''
         helm init
         helm ls
-        helm install mychart .deploy
+        helm install mychartjenkins .deploy
 
 
         '''
