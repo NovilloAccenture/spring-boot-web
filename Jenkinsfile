@@ -77,10 +77,14 @@ spec:
   stage('Deploy to Kubernetes') {
     steps { 
       container ('helm') {
-        script {
-          
-        }
-      }
+        sh '''
+        helm init
+        cd /deploy
+        helm install mychart .
+
+
+        '''
+     }
     }
   }
 
