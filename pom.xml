@@ -70,6 +70,19 @@
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
 			</plugin>
+			<plugin>
+				<artifactId>maven-deploy-plugin</artifactId>
+				<version>2.8.2</version>
+				<executions>
+					<execution>
+						<id>default-deploy</id>
+						<phase>deploy</phase>
+						<goals>
+							<goal>deploy</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
 		</plugins>
 	</build>
 
@@ -77,7 +90,7 @@
 		<repository>
 		  <id>nexus</id>
 	      <name>mvn-private</name>
-		  <url>http://sonatype-nexus-service.svc.cluster.local:8081/repository/mvn-private/</url>
+		  <url>http://sonatype-nexus-service:8081/repository/mvn-private/</url>
 		</repository>
 	</distributionManagement>
 </project>
