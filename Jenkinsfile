@@ -57,7 +57,7 @@ spec:
             nexusPublisher (nexusInstanceId: 'nexus',
             nexusRepositoryId: 'mvn-private',
             packages: [[$class: 'MavenPackage',
-            mavenAssetList: [[classifier: '', extension: '', filePath: 'target/*']],
+            mavenAssetList: [[classifier: '', extension: '', filePath: 'target/spring-boot-web-0.0.1-SNAPSHOT.jar']],
             mavenCoordinate: [artifactId: 'spring-boot-web', groupId: 'guru.springframework',
             packaging: 'jar', version: '0.0.1-SNAPSHOT']]])
     }
