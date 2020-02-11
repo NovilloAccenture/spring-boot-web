@@ -53,9 +53,26 @@ spec:
     stage('Deploy') {
       steps {
         container('maven') {
-          sh 'mvn clean deploy'
+          script {
+             nexusArtifactUploader {
+              nexusVersion('nexus3')
+              protocol('http')
+              nexusUrl('sonatype-nexus-service:8081/nexus/repository/mvn-private')
+              groupId('sp.sd')
+              version("2.4.${env.BUILD_NUMBER}")
+              repository('NexusArtifactUploader')
+              credentialsId('7bcaa64e-cd98-42df-af02-fa11a5a90d2b')
+             }
+                artifact {
+                artifactId('nexus-artifact-uploader')
+                type('jar')
+                classifier('debug')
+                file('nexus-artifact-uploader.jar')
+          }
+        }
         }
       }
+
     }
   //   stage('Sonarqube') {
   //   steps {
