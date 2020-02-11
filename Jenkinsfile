@@ -54,7 +54,12 @@ spec:
       steps {
         container('maven') {
           script {
-            nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'mvn-private', packages: []
+            nexusPublisher (nexusInstanceId: 'nexus',
+            nexusRepositoryId: 'mvn-private',
+            packages: [[$class: 'MavenPackage',
+            mavenAssetList: [[classifier: '', extension: '', filePath: 'target/*']],
+            mavenCoordinate: [artifactId: 'spring-boot-web', groupId: 'guru.springframework',
+            packaging: 'jar', version: '0.0.1-SNAPSHOT']]])
     }
         }
       }
