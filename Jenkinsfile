@@ -50,21 +50,7 @@ spec:
         }
       }
     }
-    stage('Deploy') {
-      steps {
-        container('maven') {
-          script {
-            //Pipeline Syntax: nexusPublisher
-            nexusPublisher (nexusInstanceId: 'nexus',
-            nexusRepositoryId: 'mvn-private',
-            packages: [[$class: 'MavenPackage',
-            mavenAssetList: [[classifier: '', extension: '', filePath: 'target/spring-boot-web-0.0.1-SNAPSHOT.jar']],
-            mavenCoordinate: [artifactId: 'spring-boot-web', groupId: 'guru.springframework',
-            packaging: 'jar', version: '0.0.1-SNAPSHOT']]])
-    }
-        }
-      }
-    }
+
     stage('Sonarqube') {
     steps {
         container('maven') {
@@ -76,6 +62,22 @@ spec:
       }
     }
   }
+    stage('Deploy') {
+      steps {
+        container('maven') {
+          script {
+            //Pipeline Syntax: nexusPublisher
+            nexusPublisher (nexusInstanceId: 'nexus',
+            nexusRepositoryId: 'mvn-private',
+            packages: [[$class: 'MavenPackage',
+            mavenAssetList: [[classifier: '', extension: '', filePath: 'target/spring-boot-web-0.0.1-SNAPSHOT.jar']],
+            mavenCoordinate: [artifactId: 'spring-boot-web', groupId: 'guru.springframework',
+            packaging: 'jar', version: '0.0.1-SNAPSHOT']]])
+          }
+        }
+      }
+    }
+    
   stage('Create Docker Image') {
       steps {
         container('docker') {
