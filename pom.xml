@@ -89,13 +89,8 @@
 	<distributionManagement>
 		<repository>
 		<id>nexus</id>
-		<name>maven-releases</name>
-		<url>http://sonatype-nexus-service:32452/repository/maven-releases/</url>
+		<name>mvn-private</name>
+		<url>http://sonatype-nexus-service:32452/repository/mvn-private/</url>
 		</repository>
-		<snapshotRepository>
-		<id>nexus</id>
-		<name>maven-snapshots</name>
-		<url>http://sonatype-nexus-service:32452/repository/maven-snapshots/</url>
-		</snapshotRepository>
 	</distributionManagement>
 </project>
