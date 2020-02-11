@@ -90,7 +90,7 @@
 		<repository>
 		<id>nexus</id>
 		<name>mvn-private</name>
-		<url>http://sonatype-nexus-service:32452/repository/mvn-private/</url>
+		<url>http://sonatype-nexus-service.svc.cluster.local:32452/repository/mvn-private/</url>
 		</repository>
 	</distributionManagement>
 </project>
