@@ -56,6 +56,9 @@ spec:
           script {
             nexusPublisher nexusInstanceId: 'nexus', nexusRepositoryId: 'mvn-private', packages: []
     }
+        }
+      }
+    }
   //   stage('Sonarqube') {
   //   steps {
   //       container('maven') {
