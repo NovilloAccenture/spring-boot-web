@@ -3,6 +3,7 @@ def call(Map pipelineParams) {
 pipeline {
   agent {
     kubernetes {
+      label 'pipeline-as-code'
       yaml """
 apiVersion: v1
 kind: Pod
