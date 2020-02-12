@@ -1,3 +1,3 @@
-@Library ('pipeline-as-code')
+@Library('pipeline-as-code')
 
 myPipeline ()
