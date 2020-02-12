@@ -1,5 +1,3 @@
 @Library ('pipeline-as-code')
 
-myPipeline {
-
-}
+myPipeline ()
